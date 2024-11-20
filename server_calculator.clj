@@ -3,14 +3,15 @@
   (:import [java.net ServerSocket Socket]
            [java.io BufferedReader InputStreamReader PrintWriter]))
 
-(defn calculate [operator n1 n2]
+(defn calculate
+  [operator n1 n2]
   (case operator
     "sum" (+ n1 n2)
     "sub" (- n1 n2)
     "mult" (* n1 n2)
     "div" (if (not= n2 0)
-                (/ n1 n2)
-                "Error: Divide by 0")
+            (/ n1 n2)
+            "Error: Divide by 0")
     "Invalid operation"))
 
 (defn treat-connection [socket]
